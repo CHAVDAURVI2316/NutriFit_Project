@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  {% load static %}
+  {% include 'uhead.html' %}
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="masthead" class="header ttm-header-style-stackcenter">
+            
+  {% include 'uheader.html' %}
+        </header>
+
+                {% if Request.path == '/' %}
+                {% include 'uslider.html' %}
+            {% else %}
+                {% include 'ubanner.html' %}
+            {% endif %}
+       
+
+    <!--site-main start-->
+    <div class="site-main">
+
+ <!--team-style2-section-->
+        <section class="ttm-row team-details-section clearfix">
+            <div class="container">
+                <div class="row"><!-- row -->{% for ndata in n_data %}
+                    <div class="col-md-4">
+                    
+                        <div class="featured-imagebox featured-imagebox-team-details">
+                            <div class="featured-thumbnail"><!-- team-member-image -->
+                                <img class="img-fluid" src="/media/{{ndata.n_image}}" alt="" style="height: 400px; width: 360px; border: 1px solid gainsboro;">
+                            </div>
+                            <div class="featured-content featured-content-data">
+                                <div class="featured-title"><!-- team-member-name -->
+                                    <h5>{{ndata.n_name}}</h5>
+                                </div>
+                                <div class="ttm-team-position">{{ndata.s_name}}</div><!-- team-member-position -->
+                                <ul class="ttm-team-details-list">
+                                    <li>Phone : <span class="ttm-textcolor-body">{{ndata.n_contact}}</span></li>
+                                    <li>Gender : <span class="ttm-textcolor-body">{{ndata.n_gender}}</span></li>
+                                    <li>Address : <span class="ttm-textcolor-body">{{ndata.n_address}}</span> </li>
+                                    <!-- <li>Experience : <span class="ttm-textcolor-body"> 10 Years </span> </li> -->
+                                </ul>
+                                <div class="ttm-team-social-links-wrapper ttm-social-links-wrapper list-inline">
+                                    <ul class="social-icons list-inline">
+                                        <li><a class="tooltip-top" target="_blank" href="https://facebook.com" data-tooltip="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="tooltip-top" target="_blank" href="https://x.com" data-tooltip="twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="tooltip-top" target="_blank" href="https://google.com" data-tooltip="google"><i class="fa fa-google-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="ttm-team-member-single-content">
+                            <div class="row">  
+                                <div class="col-md-12">
+                                    
+                                    <h3 class="mb-10">Hello, I am {{ndata.n_name}}</h3>
+                                    <p class="ttm-textcolor-skincolor">About My Profile</p>
+                                    <div class="pt-15">
+                                        <p style="text-align: justify;">{{ndata.n_experience}}</p>
+                                    </div>
+                            </div>
+                            <div class="row pt-20">
+                                
+                                <div class="col-md-6">
+                                    <div class="mt-15">
+                                        <h4 class="font-25">Classes Experience</h4>
+                                        <!--ttm-fid-->
+                                        <div class="ttm-fid inside ttm-fid-view-lefticon mb-0">
+                                            <div class="ttm-fid-left">
+                                                <div class="ttm-fid-icon-wrapper ttm-textcolor-skincolor">
+                                                    <i class="flaticon flaticon-diet"></i>
+                                                </div>
+                                                <h4 class="ttm-fid-inner">
+                                                    <span>
+                                                        <a href="/media/{{ndata.n_certificate}}" target="_blank">
+                                                            <img src="/media/{{ndata.n_certificate}}" alt="" style=" height: 210px; width:200px; border: 2px solid none; border-radius: 10%; ">
+                                                        </a>
+                                                    </span>
+                                                   
+                                                </h4>
+                                            </div>
+                                           
+                                        </div>
+                                    
+                                    
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mt-15">
+                                        <h4 class="font-25">Book Your Appointment</h4>
+        
+                                        <!--ttm-fid-->
+                                        <div class="ttm-fid inside ttm-fid-view-lefticon mb-0">
+                                            <div class="ttm-fid-left">
+                                                <div class="ttm-fid-icon-wrapper ttm-textcolor-skincolor">
+                                                    <img class="img-fluid" src="{% static 'images/calendar(1).png' %}" alt="">
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="ttm-fid-contents text-left">  
+                                                {% if request.session.uid == None %}
+                                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-round  ttm-btn-style-fill ttm-btn-bgcolor-skincolor mb-20" href="ulogin">Book Appointment</a>   
+                                                    {% else %}
+                                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-round  ttm-btn-style-fill ttm-btn-bgcolor-skincolor mb-20" href="appointment?nid={{n_data.0.n_id}}">Book Appointment</a>
+                                                    {% endif %}
+                                                    
+                                            </div>
+                                        </div>
+                                          <!--ttm-fid-->
+                                        <div class="ttm-fid inside ttm-fid-view-lefticon mb-0">
+                                            <div class="ttm-fid-left">
+                                                <div class="ttm-fid-icon-wrapper ttm-textcolor-skincolor">
+                                                    <img class="img-fluid" src="{% static 'images/money.png' %}" alt="">
+
+                                                </div>
+                                                <h4 class="ttm-fid-inner">
+                                                    <span>₹&nbsp; {{ndata.n_fees}}</span>
+                                                
+                                                </h4>
+                                            </div>
+                                            <div class="ttm-fid-contents text-left">
+                                                <h3 class="ttm-fid-title"><span class="ttm-textcolor-body">Appointment Fees</span></h3>
+                                            </div>
+                                        </div>
+                                        <!-- ttm-fid end-->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div><!-- row end -->
+            </div>
+        </section>
+        <!--team-style2-section end-->       
+
+        
+
+
+
+
+
+<!--site-main end-->
+
+    </div>
+
+
+    <footer class="footer widget-footer ttm-bgcolor-black clearfix">
+      {% include 'ufooter.html' %}
+    </footer>
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+</div>
+
+  {% include 'uscript.html' %}
+
+
+</body>
+</html>

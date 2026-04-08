@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  {% load static %}
+  {% include 'uhead.html' %}
+
+  <style>
+    .green{
+      background-color: #9dca00; 
+      color: white; 
+      padding: 2px 5px; 
+      border-radius: 5px;
+    }
+    .red{
+      background-color: #ff054f; 
+      color: white; 
+      padding: 2px 5px; 
+      border-radius: 5px;
+    }
+    .yellow{
+      background-color: #ffc107; 
+      color: white; 
+      padding: 2px 5px; 
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="masthead" class="header ttm-header-style-stackcenter">
+            
+  {% include 'uheader.html' %}
+        </header>
+                {% if Request.path == '/' %}
+                {% include 'uslider.html' %}
+            {% else %}
+                {% include 'ubanner.html' %}
+            {% endif %}
+    <div class="site-main">
+<!--site-main start-->
+
+         <!-- cart-section -->
+        <section class="ttm-row cart-section break-991-colum clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- ttm-cart-form -->
+                        <form class="ttm-cart-form" action="#" method="post" enctype="multipart/form-data">
+                            <table class="shop_table shop_table_responsive" style="width: fit-content;" >
+                                <thead>
+                                    <tr>
+                                        <th class="product-thumbnail">No.</th>
+                                        <th class="product-price">Appointment Title</th>
+                                        <th class="product-price">Consult Title</th>
+                                        <th class="product-quantity">Treatment</th>
+                                        <th class="product-subtotal" >File</th>
+                                        <th class="product-subtotal">Fees</th>
+                                        <th class="product-subtotal" style="width:10%;">Date</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                {% for cdata in c_data %} 
+                                    <tr class="cart_item">
+                                        
+                                        <td class="product-thumbnail">
+                                            {{forloop.counter}} 
+
+                                        </td>
+                                        <td class="product-quantity" data-title="Quantity">
+                                         {{cdata.a_title}}
+                                        </td>
+                                        <td class="product-quantity" data-title="Quantity">
+                                         {{cdata.c_title}}
+                                        </td>
+                                        <td class="product-price" data-title="Price" style="text-align: justify;">
+                                            {{cdata.c_treatment}}
+                                        </td>
+                                        <td class="product-name" data-title="Product">
+                                            <a href="/media/{{cdata.c_file}}" target="_blank"><span class="green">View</span></a>
+                                        </td>
+                                       
+                                        
+                                        <td class="product-subtotal" data-title="Total">
+                                           ₹&nbsp;{{cdata.c_fees}}
+                                        </td>
+                                        <td class="product-subtotal" data-title="Total">
+                                           {{cdata.c_date|date:'Y-m-d'}}
+                                        </td>
+                                    </tr>
+                                  
+                        {% endfor %}
+                                </tbody>
+                            </table>
+                        </form><!-- ttm-cart-form end -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- cart-section end-->
+
+
+
+
+
+<!--site-main end-->
+
+    </div>
+
+
+    <footer class="footer widget-footer ttm-bgcolor-black clearfix">
+      {% include 'ufooter.html' %}
+    </footer>
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+</div>
+
+  {% include 'uscript.html' %}
+
+
+</body>
+</html>

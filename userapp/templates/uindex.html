@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  {% load static %}
+  {% include 'uhead.html' %}
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="masthead" class="header ttm-header-style-stackcenter">
+            
+  {% include 'uheader.html' %}
+        </header>
+
+             
+       
+  {% include 'uslider.html' %}
+    <div class="site-main">
+<!--site-main start-->
+ 
+        <!--home3-about-section-->
+        <section class="ttm-row home3-about-section clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <!-- ttm_single_image-wrapper -->
+                        <div class="ttm_single_image-wrapper res-991-mt-60">
+                            <img class="img-fluid" src="{% static 'images/nutri1.png' %}" alt="" style="width:500px;height:600px; border: 5px solid #9dca00; border-radius: 10%;">
+                        </div><!-- ttm_single_image-wrapper end -->
+                        <!-- ttm-fid -->
+                        <div class="ttm-fid inside ttm-fid-with-icon ttm-fid-view-roundbox ttm-fid-no-border ttm-column-rightbox">
+                            <div class="ttm-center-fid text-center">
+                                <div class="ttm-fid-icon-wrapper ttm-textcolor-white">
+                                    <i class="flaticon flaticon-meal"></i>
+                                </div>
+                                <div class="ttm-fid-contents">
+                                    <h3 class="ttm-fid-title">Founded In</h3>
+                                </div>
+                                <h4 class="ttm-fid-inner">
+                                    <span>2000</span>
+                                </h4>
+                            </div>
+                        </div><!-- ttm-fid end-->
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="pl-37 res-991-pl-0">
+                            <div class="section-title mb-35 clearfix">
+                                <!-- section title -->
+                                <div class="title-header">
+                                    <h5>About Nutrifit</h5>
+                                    <h2 class="title">Welcome To Health Care Nutrition</h2>
+                                </div>
+                                <div class="title-desc" style="text-align: justify;">We have been the most trusted “Health care Nutrition” manual for 25 years, and We are proud of our rich history of providing evidence-based nutrition resources from Registered Dietitian Nutritionists services. We are trying to build a better, healthier future for people. Our staff is united in a shared commitment achieving better health for everyone.</div>
+                            </div><!-- section title end -->
+                            <h5 class="">Nutrition Special Features</h5>
+                            <div class="row no-gutters mb-33">
+                               <div class="col-md-4 col-lg-6 col-sm-6">
+                                    <ul class="ttm-list ttm-list-style-icon">
+                                        <li><i class="fa fa-angle-double-right ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">Personalized Diet Plans</span></li>
+                                        <li><i class="fa fa-angle-double-right ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">Medication-Free Approach</span></li>
+                                        <li><i class="fa fa-angle-double-right ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">Ways to follow a diet</span></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 col-lg-6 col-sm-6">
+                                    <ul class="ttm-list ttm-list-style-icon">
+                                        <li><i class="fa fa-angle-double-right ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">Expert Nutritionists</span></li>
+                                        <li><i class="fa fa-angle-double-right ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">Healthy Food Guidance</span></li>
+                                        <li><i class="fa fa-angle-double-right ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">A nutritious lifestyle</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-round ttm-btn-style-border ttm-btn-color-black mb-20" href="aboutus">About Us</a>
+                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-round ttm-btn-style-fill ttm-btn-bgcolor-skincolor ml-15 mb-20" href="contactus">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- row end -->
+            </div>
+        </section>
+
+
+
+<section class="ttm-row workingtext-section ttm-bgcolor-black clearfix">
+  <div class="container">
+      <!-- row -->
+      <div class="row">
+          <div class="col-md-12">
+              <!-- section title -->
+              <div class="section-title text-center clearfix">
+                  <div class="title-header">
+                      <h5>Our Specialization</h5>
+                      <h2 class="title">Explore Our Expertise</h2>
+                  </div>
+                  
+              </div><!-- section title end -->
+          </div>
+      </div>
+  </div>
+</section>
+        
+<section class="ttm-row home3-working-section bg-img3 clearfix">
+  <div class="container">
+      <!-- row -->
+      <div class="row">
+          <div class="col-md-12 mt_120 res-991-mt_50">
+              <!-- row -->
+              <div class="row">
+                  <div class="blog-slide owl-carousel owl-theme owl-loaded" data-item="3" data-nav="false" data-dots="false" data-auto="true">
+                    
+                    {% for spdata in sdata %}
+                    <!-- featured-imagebox -->
+                      <div class="featured-imagebox featured-imagebox-service ttm-box-view-top-image">
+                          <div class="featured-thumbnail">
+                              <img class="img-fluid" src="/media/{{spdata.s_image}}" alt="" style="width: 350px; height: 250px;">
+                          </div>
+                          <div class="ttm-box-bottom-content">
+                              <div class="featured-icon">
+                                  <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-background-color-skincolor ttm-icon_element-size-md ttm-icon_element-style-rounded"> 
+                                      <i class="flaticon flaticon-bicycle"></i>
+                                  </div>
+                              </div>
+                              <div class="featured-title featured-title">
+                                  <h5><a href="uourteam?sid={{spdata.s_id}}" tabindex="-1">{{spdata.s_name}}</a></h5>
+                              </div>
+                              <div class="featured-desc">
+                                  <p style="text-align: justify;">We specialize in {{spdata.s_name}}. Our team is passionate about helping you achieve the benefits that exercise brings to your health and performance.</p>
+                                  <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-black btn-inline ttm-btn-underline pt-3" href="uourteam?sid={{spdata.s_id}}">Find Nutritionists</a>
+                              </div>
+                          </div>
+                      </div><!-- featured-imagebox end-->
+                      {% endfor %}
+                  </div>
+              </div><!-- row end -->
+          </div>
+      </div><!-- row end -->
+  </div>
+</section>
+
+
+<section class="ttm-row home3-row-title-section bg-img7 ttm-bg clearfix" style="margin-top: -250px;">
+    <div class="container"><!--container-->
+        <div class="row"><!--row-->
+            <div class="col-lg-12 text-center">
+                <!-- section title -->
+                <div class="row-title style5 clearfix">
+                    <p>Live Fit, Feel Fantastic.</p>
+                    <div class="title-header">
+                        <h2 class="title mb-15">It is Time to Balance Your <span class="ttm-textcolor-skincolor">Life </span> <br> &amp; <span class="ttm-textcolor-skincolor">Nourish</span> Your Soul!</h2>
+                    </div>
+                </div><!-- section title end -->
+                <div class="mt-50 res-991-mt-30">
+                {% if request.session.uid == None %}
+                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-round  ttm-btn-style-fill ttm-btn-bgcolor-skincolor mb-20" href="ulogin">Book Appointment</a>   
+                {% else %}
+                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-round  ttm-btn-style-fill ttm-btn-bgcolor-skincolor mb-20" href="appointment">Book Appointment</a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br/>
+<div class="ttm-row broken-section bg-img8 ttm-bg ttm-bgimage-yes break-991-colum ttm-bgcolor-skincolor clearfix">
+            <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-5">
+                        <!-- ttm_single_image-wrapper -->
+                        <div class="ttm_single_image-wrapper position-relative mb_60 res-991-mb-0">
+                            <img width="469" height="570" class="img-fluid" src="{% static 'images/single-img-three.jpg' %}" alt="">
+                        </div><!-- ttm_single_image-wrapper end -->
+                    </div>
+                    <div class="col-md-7">
+                        <div class="spacing-2">
+                            <div class="section-title mb-30 clearfix">
+                                <div class="title-header">
+                                    <h5>Testimonial</h5>
+                                    <h2 class="title">What Our Clients Say!</h2>
+                                </div>
+                            </div>
+                            <!-- testimonial-slide -->
+                            
+                            <div class="testimonial-slide owl-carousel owl-theme" data-item="1" data-nav="false" data-dots="true" data-auto="false">
+                                {% for fddata in fdata %}
+                                <div class="owl-item">
+                                    <div class="testimonials"> 
+                                        <div class="testimonial-content">
+                                            <blockquote style="text-align: justify;">{{ fddata.f_message }}</blockquote>
+                                            <div class="ttm-author-box">
+                                                <div class="testimonial-avatar">
+                                                    <div class="testimonial-img">
+                                                        <img width="150" height="150" class="img-center" src="{% static 'images/testimonial/149071.png' %}" alt="testimonial-img">
+                                                    </div>
+                                                </div>
+                                                <div class="testimonial-caption">
+                                                    <h6>{{ fddata.f_name }}</h6>
+                                                    <label>User</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+</div>
+
+
+
+                        </div>
+                    </div>
+                </div><!-- row end -->
+            </div>
+        </div>
+
+<br/>
+
+<!--site-main end-->
+
+    </div>
+
+
+    <footer class="footer widget-footer ttm-bgcolor-black clearfix">
+      {% include 'ufooter.html' %}
+    </footer>
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+</div>
+
+  {% include 'uscript.html' %}
+
+
+</body>
+</html>

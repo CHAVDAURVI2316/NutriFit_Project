@@ -1,0 +1,99 @@
+{% load static %}
+
+<br>
+  <div class="navbar-wrapper">
+    <div class="m-header">     
+      <a href="/nutritionapp/" class="b-brand text-primary" style="display: flex;justify-content: center;align-items: center;">
+        <!-- ========   Change your logo from here   ============ -->
+        <img src="{% static 'img/nlogo.png' %}" alt="img" style="width: 200px; height: 150px; border-radius: 10%;    margin-top: 25px;"/>
+      </a>
+    </div>
+    
+    <div class="navbar-content" style="margin-top: 40px;">
+      <ul class="pc-navbar">
+        <li class="pc-item pc-caption">
+  <label data-i18n="Navigation">Navigation</label>
+</li>
+
+<li class="pc-item">
+  <a href="/nutritionapp/" class="pc-link">
+    <span class="pc-micon"> <i class="ph ph-gauge"></i> </span><span class="pc-mtext" data-i18n="Dashboard">Dashboard</span>
+  </a>
+</li>
+
+<li class="pc-item">
+  <a href="/nutritionapp/nprofile" class="pc-link">
+    <span class="pc-micon"> <i class="ph ph-user-circle"></i> </span><span class="pc-mtext" data-i18n="Profile">Profile</span>
+  </a>
+</li>
+
+<li class="pc-item pc-hasmenu">
+  <a href="#!" class="pc-link"
+    ><span class="pc-micon"> <i class="ph ph-notepad"></i> </span><span class="pc-mtext" data-i18n="Appointment">Appointment</span
+    ><span class="pc-arrow"><i class="ti ti-chevron-right"></i></span></a>
+  <ul class="pc-submenu">
+    <li class="pc-item"><a class="pc-link" href="/nutritionapp/npending" data-i18n="Pending">Pending</a></li>
+    <li class="pc-item"><a class="pc-link" href="/nutritionapp/napproved" data-i18n="Approved">Approved</a></li>
+    <li class="pc-item"><a class="pc-link" href="/nutritionapp/ncancel" data-i18n="Cancel">Cancel</a></li>
+    </ul>
+</li>
+
+<li class="pc-item">
+  <a href="/nutritionapp/nconsult" class="pc-link">
+    <span class="pc-micon"> <i class="ph ph-chat-circle-dots"></i> </span><span class="pc-mtext" data-i18n="Consult">Consult</span>
+  </a>
+</li>
+
+<li class="pc-item pc-hasmenu">
+  <a href="#!" class="pc-link">
+  <span class="pc-micon"> <i class="ph ph-credit-card"></i> </span><span class="pc-mtext" data-i18n="Payment">Payment</span>
+  <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span></a>
+  <ul class="pc-submenu">
+    <li class="pc-item"><a class="pc-link" href="/nutritionapp/npappointment" data-i18n="Appointment">Appointment</a></li>
+    <li class="pc-item"><a class="pc-link" href="/nutritionapp/npconsult" data-i18n="Consult">Consult</a></li>
+   
+  </ul>
+</li>
+
+<li class="pc-item">
+  <a href="/nutritionapp/nuser" class="pc-link">
+    <span class="pc-micon"> <i class="ph ph-user-circle"></i> </span><span class="pc-mtext" data-i18n="User">User</span>
+  </a>
+</li> 
+
+<li class="pc-item">
+  <a href="/nutritionapp/nnutritionist" class="pc-link">
+    <span class="pc-micon"> <i class="ph ph-stethoscope"></i> </span><span class="pc-mtext" data-i18n="Nutritionist">Nutritionist</span>
+  </a>
+</li>
+
+<li class="pc-item">
+  <a href="/nutritionapp/nspecialization" class="pc-link">
+    <span class="pc-micon"> <i class="ph ph-medal"></i> </span><span class="pc-mtext" data-i18n="Specialization">Specialization</span>
+  </a>
+</li>
+
+<li class="pc-item">
+  <a href="/nutritionapp/nfeedback" class="pc-link">
+    <span class="pc-micon"> <i class="ph ph-chat-teardrop-text"></i> </span><span class="pc-mtext" data-i18n="Feedback">Feedback</span>
+  </a>
+</li>
+
+<li class="pc-item pc-hasmenu">
+  <a href="#!" class="pc-link"
+    ><span class="pc-micon"> <i class="ph ph-notepad"></i> </span><span class="pc-mtext" data-i18n="Reports">Reports</span
+    ><span class="pc-arrow"><i class="ti ti-chevron-right"></i></span></a>
+  <ul class="pc-submenu">         
+    <li class="pc-item"><a class="pc-link" href="/nutritionapp/nappointmentreport" data-i18n="Appointment">Appointment</a></li>
+    <li class="pc-item"><a class="pc-link" href="/nutritionapp/nconsultreport" data-i18n="Consult">Consult</a></li>
+  </ul>
+</li>
+
+<li class="pc-item">
+  <a href="/nutritionapp/nlogout" class="pc-link">
+    <span class="pc-micon"> <i class="ph ph-sign-out"></i> </span><span class="pc-mtext" data-i18n="Logout">Logout</span>
+  </a>
+</li>
+</ul>
+</div>
+</div>

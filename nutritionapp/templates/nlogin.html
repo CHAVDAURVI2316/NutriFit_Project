@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <!-- [Head] start -->
+ {% load static %}
+  
+  <head>
+    {% include 'nhead.html' %}
+  </head>
+
+  <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+
+   
+
+ <div class="auth-main">
+      <div class="auth-wrapper v1">
+        <div class="auth-form">
+          <div class="position-relative">
+            <div class="auth-bg">
+              <span class="r"></span>
+              <span class="r s"></span>
+              <span class="r s"></span>
+              <span class="r"></span>
+            </div>
+            <div class="card mb-0">
+              <div class="card-body">
+                 <form method="POST" enctype="multipart/form-data">
+                   {% csrf_token %}
+                <div class="text-center">
+                  <img src="{% static 'img/nlogo.png' %}" alt="img" style="width: 200px; height: 200px;"/>
+                </div>
+                <h4 class="text-center f-w-500 mt-4 mb-3">Access Your Account.</h4>
+                <div class="mb-3">
+                  <label>Contact</label>
+                  <input type="text" class="form-control" id="floatingInput" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);" pattern="[0-9]{10}" title="Ex.9876543210"  name="n_contact" placeholder="Enter Contact" required/>
+                </div>
+                <div class="mb-3">
+                  <label>Password</label>
+                  <input type="password" class="form-control" name="n_password" placeholder="Enter Password" id="myInput" required/>
+                </div>
+                <div class="d-flex mt-1 justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" onclick="myFunction()" />
+                  <label class="form-check-label text-muted" for="customCheckc1">Show Password</label>
+                </div>
+               
+                </div>
+                <div class="text-center mt-4">
+                  <button type="submit" class="btn btn-primary shadow px-sm-4">Login</button>
+                </div>
+                </form>
+                <br>
+
+                 {% if msg != "" %}
+                 <a href="#" class="btn btn-block btn-danger">
+                    <i class="fab fa-meg mr-2"></i> {{msg}}
+                  </a>
+                  {% endif %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     {% include 'nscript.html' %}
+ 
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+  </body>
+  <!-- [Body] end -->
+</html>

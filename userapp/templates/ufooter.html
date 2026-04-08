@@ -1,0 +1,98 @@
+{% load static %}
+
+        <div class="second-footer ttm-textcolor-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
+                        <div class="widget clearfix">
+                            <div class="footer-logo">
+                                <img id="footer-logo-img" class="img-center" src="{% static 'images/nlogo.png' %}" alt="" style="max-height:92px; width:100px; margin: -27px 75px;" >
+                            </div>
+                             <div class="separator pt-5">
+                                <div class="sep-line mb-30"></div>
+                            </div>
+                            <p style="text-align: justify;">Nutrifit offers expert nutrition and diet guidance backed by 25 years of experience.
+We create personalized diet plans for healthy and sustainable results.
+Our goal is to improve overall wellness through balanced nutrition.</p>
+                            <div class="separator pt-5">
+                                <div class="sep-line mb-30"></div>
+                            </div>
+                           
+                            <div class="social-icons social-hover">
+                                <ul class="list-inline">
+                                    <li class="social-facebook"><a class="tooltip-top" target="_blank" href="https://facebook.com" data-tooltip="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li class="social-twitter"><a class="tooltip-top" target="_blank" href="https://x.com" data-tooltip="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li class="social-gplus"><a class=" tooltip-top" target="_blank" href="https://flickr.com" data-tooltip="Flickr"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
+                                    <li class="social-linkedin"><a class=" tooltip-top" target="_blank" href="https://www.linkedin.com" data-tooltip="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
+                        <div class="widget widget_nav_menu clearfix">
+                           <div class="separator pt-5">
+                           <h3 class="widget-title">Quick Links</h3>
+
+                                <div class="sep-line mb-30"></div>
+                            </div>
+                            <ul id="menu-footer-services">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="uourteam">Nutritionist</a></li>
+                                <li><a href="aboutus">About Us</a></li>
+                                <li><a href="contactus">Contact Us</a></li>
+                                <li><a href="uprivacypolicy">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
+                        <div class="widget widget_nav_menu clearfix">
+                           <div class="separator pt-5">
+                           <h3 class="widget-title">Accounts</h3>
+
+                                <div class="sep-line mb-30"></div>
+                            </div>
+
+                            {% if request.session.uid == None %}
+                            <ul id="menu-footer-services">
+                                <li><a href="usignup?verify=number ">User Sign Up</a></li>
+                                <li><a href="unsignup?verify=number">Nutritionist Sign Up</a></li>
+                                <li><a href="ulogin" target="_blank">User Sign In</a></li>
+                                <li><a href="nutritionapp/nlogin" target="_blank">Nutritionist Sign In</a></li>
+                            </ul>
+                            {% else %}
+                            <ul id="menu-footer-services">
+                                <li><a href="uprofile ">Profile</a></li>
+                                <li><a href="umyappointment">My Appointment</a></li>
+                                <li><a href="upayment" target="">Payment</a></li>
+                                <li><a href="logout" target="_blank">Logout</a></li>
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
+                        <div class="widget widget_nav_menu clearfix">
+                           <div class="separator pt-5">
+                           <h3 class="widget-title">Contact Us</h3>
+
+                                <div class="sep-line mb-30"></div>
+                            </div>
+                             <ul class="widget-contact">
+                                <li><a href="mailto:ccca_bca@yahoo.com" target="_blank"><i class="fa fa-envelope-o"></i>ccca_bca@yahoo.com</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:(+91)7046405775">(+91) 70464 05775</a></li>
+                                <li><i class="fa fa-map-marker"></i><a href="https://www.google.com/maps/place/Shri+Akhil+Anjana+Kelavani+Mandal/data=!4m2!3m1!1s0x0:0x7c6809a8ccfef63e?sa=X&ved=1t:2428&ictx=111" target="_blank">Chaudhari Technical Institute,<br>opposite Bus Stand, <br>Sector 7 Gandhinagar,<br>Gujarat 382007</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer-text ttm-textcolor-white">
+            <div class="container">
+                <div class="row copyright">
+                    <div class="col-md-8 ttm-footer2-right">
+                        <span>Copyright © 2025-26 &nbsp;<a href="/">NutriFit</a>.&nbsp; All rights reserved.</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>

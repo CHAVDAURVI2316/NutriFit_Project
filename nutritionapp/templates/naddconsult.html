@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+ {% load static %}
+  
+<head>
+    {% include 'nhead.html' %}
+  </head>
+  
+  <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+
+
+
+ <!--  start -->
+<nav class="pc-sidebar">
+
+    {% include 'nleftbar.html' %}
+</nav>
+<!-- [ Sidebar Menu ] end -->
+ <!-- [ Header Topbar ] start -->
+<header class="pc-header">
+ 
+    {% include 'nheader.html' %}
+</header>
+<!-- [ Header ] end -->
+
+
+
+    <!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header" style="margin-top: -28px;">
+  <div class="page-block">
+    <div class="row align-items-center">
+      <div class="col-md-12">
+        <div class="page-header-title">
+          <h5 class="mb-0">Manage Consult</h5>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <ul class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="/nutritionapp/">Dashboard</a></li>
+          <li class="breadcrumb-item" aria-current="page">Add Consult</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+        </div>
+<!-- [ breadcrumb ] end -->
+
+<!-- start -->
+<div class="row">
+          <!-- [ form-element ] start -->
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h5> Add Consult Data</h5>
+              </div>
+              <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                   {% csrf_token %}
+                  <div class="mb-3">
+                    <label class="form-label">Appointment Title</label>
+                     <input type="text"  value="{{c_data.0.a_title}}" class="form-control" placeholder="Enter Title"  readonly />
+                  </div>
+                   
+                   <div class="mb-3">
+                    <label class="form-label">Appointment Symptoms</label>
+                     <textarea class="form-control" placeholder="Enter Title"  readonly >{{c_data.0.a_symptoms}}</textarea>
+                      <input type="hidden" name="u_id"  value="{{c_data.0.u_id}}" class="form-control" placeholder="Enter Title" />
+                       <input type="hidden" name="n_id"  value="{{c_data.0.n_id}}" class="form-control" placeholder="Enter Title" />
+                  </div>
+
+                    <div class="mb-3">
+                    <label class="form-label">Consult Title</label>
+                    <input type="text" name="c_title" value="" class="form-control" placeholder="Enter Title" />
+
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Treatment</label>
+                   <textarea name="c_treatment" id=""  class="form-control" placeholder="Enter Treatment"></textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">File</label><br>
+                    <input type="file" name="c_file" class="form-control" placeholder="" />
+                   
+                  </div>
+               
+                  <div class="mb-3">
+                    <label class="form-label">Fees</label>
+                    <input type="text" name="c_fees" value="" class="form-control" placeholder="Enter Fees" />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Date</label>
+                    <input type="date" name="c_date" value="" class="form-control" placeholder="Enter Date" />
+                  </div>
+
+                  
+                <div class="card-footer text-end">
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                </div>
+                </form>
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+
+
+
+
+    </div>
+</div>
+    <!-- [ Main Content ] end -->
+<footer class="pc-footer">
+        
+    {% include 'nfooter.html' %}
+
+</footer>
+
+
+   {% include 'nscript.html' %}
+
+  </body>
+ 
+ 
+  </html>

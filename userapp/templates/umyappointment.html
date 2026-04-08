@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  {% load static %}
+  {% include 'uhead.html' %}
+
+  <style>
+    .green{
+      background-color: #9dca00; 
+      color: white; 
+      padding: 2px 5px; 
+      border-radius: 5px;
+    }
+    .red{
+      background-color: #ff054f; 
+      color: white; 
+      padding: 2px 5px; 
+      border-radius: 5px;
+    }
+    .yellow{
+      background-color: #ffc107; 
+      color: white; 
+      padding: 2px 5px; 
+      border-radius: 5px;
+    }
+    .cancel
+    {
+    display: block;
+    font-size: 1.5em;
+    height: 1em;
+    width: 1em;
+    text-align: center;
+    line-height: 1;
+    border-radius: 100%;
+    color: red;
+    text-decoration: none;
+    font-weight: 700;
+    border: 0;
+    }
+    .cancel:hover{
+        color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="masthead" class="header ttm-header-style-stackcenter">
+            
+  {% include 'uheader.html' %}
+        </header>
+                {% if Request.path == '/' %}
+                {% include 'uslider.html' %}
+            {% else %}
+                {% include 'ubanner.html' %}
+            {% endif %}
+    <div class="site-main">
+<!--site-main start-->
+
+         <!-- cart-section -->
+        <section class="ttm-row cart-section break-991-colum clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- ttm-cart-form -->
+                        <form class="ttm-cart-form" action="#" method="post" enctype="multipart/form-data">
+                            <table class="shop_table shop_table_responsive" >
+                                <thead>
+                                    <tr >
+                                        <th class="product-remove">Action</th>
+                                        <th class="product-thumbnail">No.</th>
+                                        <th class="product-thumbnail">Nutritionist</th>
+                                        <th class="product-name">Specialization</th>
+                                        <th class="product-price">Title</th>
+                                        <th class="product-quantity">Symptoms</th>
+                                        <th class="product-subtotal" style="width: 10%;">Date</th>
+                                        <th class="product-subtotal">Fees</th>
+                                        <th class="product-subtotal">Remarks</th>
+                                        <th class="product-subtotal">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                {% for adata in a_data %} 
+                                    <tr class="cart_item">
+                                        <td class="product-remove">
+                                            {% if adata.a_status == 'Approved' %}
+                                            <a href="uconsult?a_id={{adata.a_id}}" class="cancel" style="color: #9dca00;" title="View Consult"><i class="fa fa-edit"></i></a>
+                                            {% else %}
+                                        <a href="umyappointment?adel={{adata.a_id}}" class="cancel" onclick="return confirm('Are You Sure Want To Delete.?')" title="Delete"><i class="fa fa-close"></i></a>
+                                        {% endif %}
+                                        
+                                        </td>
+                                        <td class="product-thumbnail">
+                                            {{forloop.counter}} 
+
+                                        </td>
+                                        <td class="product-name" data-title="Product">
+                                          {{adata.n_name}} <br>
+                                          <span class="green">{{adata.n_contact}} </span>
+                                        </td>
+                                           <td class="product-quantity" data-title="Quantity">
+                                          {{adata.s_name}}
+                                         
+                                        </td>
+                                        <td class="product-quantity" data-title="Quantity">
+                                         {{adata.a_title}}
+                                         
+                                        </td>
+                                        <td class="product-price" data-title="Price">
+                                            {{adata.a_symptoms}}
+                                        </td>
+                                       
+                                        <td class="product-subtotal" data-title="Total">
+                                           {{adata.a_date|date:'Y-m-d'}}
+                                        </td>
+                                        <td class="product-subtotal" data-title="Total">
+                                           ₹&nbsp;{{adata.a_fees}}
+                                        </td>
+                                        <td class="product-subtotal" data-title="Total">
+                                           {{adata.a_remarks}}
+                                        </td>
+                                        <td class="product-subtotal" data-title="Total">
+                                          <span class="{% if adata.a_status == 'Pending' %}yellow {% elif adata.a_status == 'Approved' %}green {% else %}red{% endif %}">{{adata.a_status}} </span>
+                                         
+                                        </td>
+                                    </tr>
+                                  
+                        {% endfor %}
+                                </tbody>
+                            </table>
+                        </form><!-- ttm-cart-form end -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- cart-section end-->
+
+
+
+
+
+<!--site-main end-->
+
+    </div>
+
+
+    <footer class="footer widget-footer ttm-bgcolor-black clearfix">
+      {% include 'ufooter.html' %}
+    </footer>
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+</div>
+
+  {% include 'uscript.html' %}
+
+
+</body>
+</html>

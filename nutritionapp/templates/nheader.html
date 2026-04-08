@@ -1,0 +1,57 @@
+{% load static %}
+{% if request.session.contact == None %}
+  <script>
+    window.location.href = "nlogin";
+  </script>
+  {% endif %} 
+  
+ <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
+<div class="me-auto pc-mob-drp">
+  <ul class="list-unstyled">
+    <li class="pc-h-item pc-sidebar-collapse">
+      <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
+        <i class="ph ph-list"></i>
+      </a>
+    </li>
+    <li class="pc-h-item pc-sidebar-popup">
+      <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
+        <i class="ph ph-list"></i>
+      </a>
+    </li>
+   
+  </ul>
+</div>
+<!-- [Mobile Media Block end] -->
+<div class="ms-auto">
+  <ul class="list-unstyled">
+    
+    <li class="dropdown pc-h-item header-user-profile">
+      <a title="{{request.session.contact}}" class="pc-head-link dropdown-toggle arrow-none me-0 show" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="true">
+        <i class="ph ph-user-circle"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end pc-h-dropdown " style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 60.8px, 0px);" data-popper-placement="bottom-end">
+        <a href="#!" class="dropdown-item">
+          <img src="{% static 'img/' %}{{request.session.img}}" style="width: 100px;height: 100px;border-radius: 50%; border: 1px solid black; margin-left: auto;margin-right: auto;">
+        </a> 
+        <div class="dropdown-header">
+          <h6 class="mb-0">{{request.session.name}}</h6>
+          <span class="badge bg-success-subtle text-success mt-1">Nutritionist</span>
+        </div>
+        <div class="dropdown-divider"></div>
+        
+        
+
+        <a href="#!" class="dropdown-item">
+          <i class="ph ph-clock"></i>
+          <span>Last Visit : {{request.session.time}}</span>
+        </a>
+        <div class="dropdown-divider" style="text-align: center;"></div>
+        <a href="/nutritionapp/nlogout" class="dropdown-item text-danger">
+          <i class="ph ph-sign-out"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>
+ </div>

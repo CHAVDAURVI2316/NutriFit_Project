@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  {% load static %}
+  {% include 'uhead.html' %}
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="masthead" class="header ttm-header-style-stackcenter">
+            
+  {% include 'uheader.html' %}
+        </header>
+
+     {% if Request.path == '/' %}
+                {% include 'uslider.html' %}
+            {% else %}
+                {% include 'ubanner.html' %}
+            {% endif %}
+      
+       
+    <!--site-main start-->
+    <div class="site-main">
+
+
+
+
+        <!--contact-top-section-->
+        <section class="ttm-row contact-form-section clearfix" style="margin-top: 40px;">
+            <div class="container">
+                <!--row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="featured-icon-box without-icon ttm-bgcolor-skincolor spacing-11" style="border-radius: 50px;height: 190px;">
+                                    <div class="featured-title">
+                                        <h5 class="mb-15"><i class="ti ti-location-pin"></i>&nbsp;&nbsp;Address</h5>
+                                    </div>
+                                    <ul class="ttm-list ttm-list-style-icon ttm-textcolor-white">
+                                    <li>
+                                       <span class="ttm-list-li-content"><a href="https://www.google.com/maps/place/Shri+Akhil+Anjana+Kelavani+Mandal/data=!4m2!3m1!1s0x0:0x7c6809a8ccfef63e?sa=X&ved=1t:2428&ictx=111" target="_blank"><p>AAKMS <br> Chaudhari Technical Institute,<br>Sector 7 Gandhinagar,<br>Gujarat 382007</p></a></span>
+                                    
+                                    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="featured-icon-box without-icon ttm-bgcolor-skincolor spacing-11" style="border-radius: 50px;    height: 190px;">
+                                    <div class="featured-title">
+                                        <h5 class="mb-15"><i class="ti ti-mobile"></i>&nbsp;&nbsp;Contact</h5>
+                                    </div>
+                                    <ul class="ttm-list ttm-list-style-icon ttm-textcolor-white">
+                                    <li>
+                                       <a href="tel:(+91)6357997220"> <span class="ttm-list-li-content">(+91) 63579 97220</span>
+                                        </a><br>
+                                       
+                                       
+                                    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="featured-icon-box without-icon ttm-bgcolor-skincolor spacing-11" style="border-radius: 50px;    height: 190px;">
+                                    <div class="featured-title">
+                                        <h5 class="mb-15"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;Email</h5>
+                                    </div>
+                                    <ul class="ttm-list ttm-list-style-icon ttm-textcolor-white">
+                                        <li>
+                                            <a href="mailto:ccca_bca@yahoo.com"><span class="ttm-list-li-content">ccca_bca@yahoo.com</span></a>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div><!--roe end-->
+            </div>
+        </section>
+        <!--contact-top-section end-->
+
+        
+        <!--contact-form-section-->
+        <section class="ttm-row contact-top-section ttm-bgcolor-grey clearfix ">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-8">
+                        <div class="pt-50">
+                            <h3 class="font-23">Who Do you want to communicate with</h3>
+                            <p>For more information here we provide separate department contact person details, please contact them.</p>
+                            <div class="row mt-15">
+                                <div class="col-md-6">
+                                    <h4 class="ttm-textcolor-skincolor">Career Inquiries</h4>
+                                    <h5 class="font-18">Alex Hardy</h5>
+                                    <p>Ph: (+01) 123 456 7899<br>Email: info@example.com</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="ttm-textcolor-skincolor">Marketing Department</h4>
+                                    <h5 class="font-18">John Martin</h5>
+                                    <p>Ph: (+01) 123 456 7899<br>Email: info@example.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row  spacing-12 box-shadow1 ttm-bgcolor-white mb-25">
+                             <div class="col-md-12"></div>
+                                <h4>Send Your Feedback</h4>
+                                <p>Your feedback is important to us. Please share your experience.</p>
+
+
+                                <form id="ttm-contactform" class="ttm-contactform wrap-form clearfix" method="POST" >
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label>
+                                                <span class="text-input"><input name="f_name" type="text" value="" placeholder="Name" pattern="[A-Za-z\s]+" title="Please Enter Valid Name." required></span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <label>
+                                                <span class="text-input"><input name="f_contact" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);" pattern="[0-9]{10}" title="Ex.9876543210" value="" placeholder="Phone" required></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                       <label>
+                                        <span class="text-input"><textarea name="f_message" rows="5" cols="40" placeholder="Write Your Feedback" required></textarea></span>
+                                    </label>
+                                    </div>
+                                    <input name="submit" type="submit" id="submit" class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-round  ttm-btn-style-fill ttm-btn-bgcolor-skincolor mb-5" value="Submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        </section><!--contact-form-section end-->
+
+
+
+        <!--map-start-->
+        <div class="map-wrapper" style="height: 800px;">
+            <div id="map_canvas" >
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.84283729774!2d72.6437733!3d23.212397499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2bb4bfffffff%3A0x7c6809a8ccfef63e!2sShri%20Akhil%20Anjana%20Kelavani%20Mandal!5e0!3m2!1sen!2sin!4v1766162314440!5m2!1sen!2sin" width="auto" height="800" style="border: 2px solid rgb(210, 176, 125);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+            </div>
+        </div>
+    
+    </div><!--site-main end-->
+
+    <footer class="footer widget-footer ttm-bgcolor-black clearfix">
+      {% include 'ufooter.html' %}
+    </footer>
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+</div>
+
+  {% include 'uscript.html' %}
+
+
+</body>
+</html>
+
+

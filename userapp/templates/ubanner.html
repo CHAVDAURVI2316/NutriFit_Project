@@ -1,0 +1,88 @@
+{% load static %}
+
+
+
+<!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-bg-layer ttm-bg-layer"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center"> 
+                        <div class="title-box ttm-textcolor-white">
+                            <div class="page-title-heading ttm-textcolor-white">
+                                {% if request.path == '/aboutus' %}
+                                <h1 class="title">About Us</h1>
+                                {% elif request.path == '/contactus' %}
+                                <h1 class="title">Contact Us</h1>
+                                {% elif request.path == '/appointment' %}
+                                <h1 class="title">Make An Appointment</h1>
+                                {% elif request.path == '/unsignup' %}
+                                <h1 class="title">Nutritionist Sign Up</h1>
+                                {% elif request.path == '/usignup' %}
+                                <h1 class="title">User Sign Up</h1>
+                                {% elif request.path == '/uprofile' %}
+                                <h1 class="title">Profile</h1>
+                                {% elif request.path == '/ulogin' %}
+                                <h1 class="title">User Sign In</h1>
+                                {% elif request.path == '/umyappointment' %}
+                                <h1 class="title">My Appointment</h1>
+                                {% elif request.path == '/uforgotpassword' %}
+                                <h1 class="title">User Forgot Password</h1>
+                                {% elif request.path == '/uforgotpassword' %}
+                                <h1 class="title">Nutritionist Forgot Password</h1>
+                                {% elif request.path == '/uconsult' %}
+                                <h1 class="title">My Consult</h1>
+                                {% elif request.path == '/uourteam' %}
+                                <h1 class="title">Nutritionist</h1>
+                                {% elif request.path == '/uprivacypolicy' %}
+                                <h1 class="title">Privacy Policy</h1>
+                                {% elif request.path == '/uteamdetails' %}
+                                <h1 class="title">Nutritionist Details</h1>
+                                {% elif request.path == '/umypayment' %}
+                                <h1 class="title">Payment</h1>
+                                {% endif %}
+                            </div><!-- /.page-title-captions -->
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="/"><i class="ti ti-home"></i> Home </a>
+                                </span>
+                                <span class="ttm-bread-sep"> &nbsp; :&nbsp;: &nbsp; </span>
+                                 {% if request.path == '/aboutus' %}
+                                <span><span class="ttm-textcolor-skincolor">About Us</span></span>
+                                 {% elif request.path == '/contactus' %}
+                                 <span><span class="ttm-textcolor-skincolor">Contact Us</span></span>
+                                 {% elif request.path == '/appointment' %}
+                                 <span><span class="ttm-textcolor-skincolor">Make An Appointment</span></span>
+                                 {% elif request.path == '/unsignup' %}
+                                 <span><span class="ttm-textcolor-skincolor">Nutritionist Sign Up</span></span>
+                                 {% elif request.path == '/usignup' %}
+                                 <span><span class="ttm-textcolor-skincolor">User Sign Up</span></span>
+                                 {% elif request.path == '/uprofile' %}
+                                 <span><span class="ttm-textcolor-skincolor">Profile</span></span>
+                                 {% elif request.path == '/ulogin' %}
+                                 <span><span class="ttm-textcolor-skincolor">User Sign In</span></span>
+                                 {% elif request.path == '/umyappointment' %}
+                                 <span><span class="ttm-textcolor-skincolor">My Appointment</span></span>
+                                 {% elif request.path == '/uforgotpassword' %}
+                                 <span><span class="ttm-textcolor-skincolor">User Forgot Password</span></span>
+                                 {% elif request.path == '/unforgotpassword' %}
+                                 <span><span class="ttm-textcolor-skincolor">Nutritionist Forgot Password</span></span>
+                                 {% elif request.path == '/uconsult' %}
+                                 <span><span class="ttm-textcolor-skincolor">My Consult</span></span>
+                                 {% elif request.path == '/uourteam' %}
+                                 <span><span class="ttm-textcolor-skincolor">Nutritionist</span></span>
+                                 {% elif request.path == '/uprivacypolicy' %}
+                                 <span><span class="ttm-textcolor-skincolor">Privacy Policy</span></span>
+                                 {% elif request.path == '/uteamdetails' %}
+                                 <span><span class="ttm-textcolor-skincolor">Nutritionist Details</span></span>
+                                 {% elif request.path == '/umypayment' %}
+                                 <span><span class="ttm-textcolor-skincolor">Payment</span></span>
+                                 
+                                 {% endif %}
+                            </div>  
+                        </div>
+                    </div><!-- /.col-md-12 -->  
+                </div><!-- /.row -->  
+            </div><!-- /.container -->                      
+        </div><!-- page-title end-->
+

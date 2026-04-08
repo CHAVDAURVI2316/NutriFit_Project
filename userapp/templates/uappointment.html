@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  {% load static %}
+  {% include 'uhead.html' %}
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="masthead" class="header ttm-header-style-stackcenter">
+            
+  {% include 'uheader.html' %}
+        </header>
+
+                {% if Request.path == '/' %}
+                {% include 'uslider.html' %}
+            {% else %}
+                {% include 'ubanner.html' %}
+            {% endif %}
+       
+
+    <!--site-main start-->
+    <div class="site-main">
+<section class="ttm-row contact-top-section ttm-bgcolor-grey clearfix ">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-8">
+                        <div class="pt-50">
+                            <h3 class="font-23">Who Do you want to communicate with</h3>
+                            <p>For more information here we provide separate department contact person details, please contact them.</p>
+                            <div class="row mt-15">
+                                <div class="col-md-6">
+                                    <h4 class="ttm-textcolor-skincolor">Career Inquiries</h4>
+                                    <h5 class="font-18">Alex Hardy</h5>
+                                    <p>Ph: (+01) 123 456 7899<br>Email: info@example.com</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="ttm-textcolor-skincolor">Marketing Department</h4>
+                                    <h5 class="font-18">John Martin</h5>
+                                    <p>Ph: (+01) 123 456 7899<br>Email: info@example.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row  spacing-12 box-shadow1 ttm-bgcolor-white mb-25">
+                             <div class="col-md-12">
+            					<h4>Make An Appointment</h4><span style="color:red">"Please fill all required (*) fields</span>
+                                <form id="ttm-contactform" class="ttm-contactform wrap-form clearfix" enctype="multipart/form-data" method="POST" >
+                                    {% csrf_token %}
+                                    <div class="row">
+                                         
+
+                                            <div class="col-md-6">
+                                                <label>Nutritionist <span style="color:red; font-size: 20px;" >*</span>
+                                                    <span class="text-input">
+                                                        <input name="n_id" type="text" value="{{a_data.0.n_name}}" placeholder="Enter Title" readonly>
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label>Specialization  <span style="color:red">*</span>
+                                                    <span class="text-input">
+                                                        <input  type="text" value="{{a_data.0.s_name}}" placeholder="Enter Title" readonly>
+                                                        <input name="s_id" type="hidden" value="{{a_data.0.s_id}}" placeholder="Enter Title">
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                            
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Appointment Title <span style="color:red">*</span>
+                                                    <span class="text-input"><input name="a_title" type="text" pattern="[A-Za-z\s]+" title="Please Enter Valid title." value="" placeholder="Enter Title" required></span>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Symptoms <span style="color:red">*</span>
+                                                    <span class="text-input"><textarea name="a_symptoms"  placeholder="Enter Symptoms" required></textarea></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                         <div class="col-md-6">
+                                            <label>Date <span style="color:red">*</span>
+                                                <span class="text-input"><input name="a_date" type="date" value="" placeholder="Enter Date" required id="dateInput">  </span>
+                                            </label>
+                                        </div>
+                                    
+                                        <div class="col-md-6">
+                                            <label>Fees <span style="color:red">*</span>
+                                                <span class="text-input"><input name="a_fees" type="text" value="{{a_data.0.n_fees}}" placeholder="Enter Fees" readonly required></span>
+                                            </label>
+                                        </div>   
+                                    </div> 
+                                      <div class="row">
+                                         <div class="col-md-12">
+                                            <label>Remarks <span style="color:red">*</span>
+                                                <span class="text-input"><textarea name="a_remarks"  placeholder="Enter Remarks" required></textarea></span>
+                                            </label>
+                                        </div> 
+                                    </div>                                   
+                                        
+                                  
+                                    <div class="col-lg-12">           
+                                        <div class="card-footer text-end">
+                                            <input type="submit" name="submit" value="Book Appointment" class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-round  ttm-btn-style-fill ttm-btn-bgcolor-skincolor mb-5" />
+                                        </div>
+                                        
+                                    
+                                    </div>
+                                </form>
+                                <br>
+                                 {% if msg != "" %}
+                                
+                                      <a href="#" class="btn btn-block btn-danger" style="width: 100%;">
+                                        <i class="fab fa-meg mr-2"></i> {{msg}}
+                                      </a>
+                                      {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div>
+            </div>
+            
+</section>
+       
+
+        <script>
+  const today = new Date().toISOString().split("T")[0];
+  document.getElementById("dateInput").setAttribute("min", today);
+</script>
+
+
+
+
+
+<!--site-main end-->
+
+    </div>
+
+
+    <footer class="footer widget-footer ttm-bgcolor-black clearfix">
+      {% include 'ufooter.html' %}
+    </footer>
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+</div>
+
+  {% include 'uscript.html' %}
+
+
+</body>
+</html>

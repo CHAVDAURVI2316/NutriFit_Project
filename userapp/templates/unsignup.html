@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  {% load static %}
+  {% include 'uhead.html' %}
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="masthead" class="header ttm-header-style-stackcenter">
+            
+  {% include 'uheader.html' %}
+        </header>
+
+                {% if Request.path == '/' %}
+                {% include 'uslider.html' %}
+            {% else %}
+                {% include 'ubanner.html' %}
+            {% endif %}
+       
+
+
+    <div class="site-main">
+<!--site-main start-->
+<section class="ttm-row contact-top-section ttm-bgcolor-grey clearfix ">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-8">
+                        <div class="pt-50">
+                            <h3 class="font-23">Who Do you want to communicate with</h3>
+                            <p>For more information here we provide separate department contact person details, please contact them.</p>
+                            <div class="row mt-15">
+                                <div class="col-md-6">
+                                    <h4 class="ttm-textcolor-skincolor">&nbsp;</h4>
+                                    <h5 class="font-18">&nbsp;</h5>
+                                    <p><br>&nbsp;</p>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row  spacing-12 box-shadow1 ttm-bgcolor-white mb-25">
+                             <div class="col-md-12">
+                                <h4>Nutritionist Sign Up</h4>
+
+
+                                <form id="ttm-contactform" class="ttm-contactform wrap-form clearfix" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                     
+                                     {% if request.GET.verify == 'number'   %}
+                                    <div class="row">
+                                         <div class="col-md-6">
+                                            <label>Contact Number
+                                                <span class="text-input"><input name="n_contact" type="text" maxlength="10" pattern="[0-9]{10}" title="Ex.9876543210"  value="" placeholder="Enter Contact Number" required></span>
+                                            </label>
+                                        </div>
+
+                                         {% elif  request.GET.verify == 'otp' %}
+
+                                         <div class="col-md-6">
+                                            <label>OTP
+                                                <span class="text-input"><input name="n_otp" type="text" maxlength="4" pattern="[0-9]{4}" title="Ex.9876" value="" placeholder="Enter OTP" required></span>
+                                            </label>
+                                        </div>
+
+
+                                    </div>
+                                     {% else %}
+
+
+                                    <div class="row">
+                                      
+                                        <div class="col-md-6">
+                                            <label>Specialization
+                                                <span class="text-input">
+                                                         <select class="" name="s_id">
+                                                              {% for sdata in sp_data %}
+                                                                <option value="{{sdata.s_id}}" >{{sdata.s_name}}</option>
+                                                                {% endfor %}
+                                                          </select>
+                                                </span>
+                                            </label>
+                                            </div>
+                                        <div class="col-md-6">
+                                            <label>Name
+                                                <span class="text-input"><input name="n_name" type="text" pattern="[A-Za-z\s]+" title="Please Enter Valid Name." value="" placeholder="Enter Name" required></span>
+                                            </label>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+
+
+                                        <div class="col-md-6">
+                                            <label>Contact Number
+                                                <span class="text-input"><input name="n_contact" type="text" value="{{request.session.ncontact}}" placeholder="Enter Contact" required="required" readonly></span>
+                                            </label>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                        <label>Gender
+                                            <span class="text-input">
+                                                <select id="gender" name="n_gender">
+                                                <option value="female">Female</option>
+                                                <option value="male">Male</option>
+                                                </select>
+                                            </span>
+                                        </label>
+                                    </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                         <div class="col-md-12">
+                                       <label>Address
+                                        <span class="text-input"><textarea name="n_address" rows="5" cols="40" placeholder="Enter Address" required></textarea></span>
+                                    </label>
+                                    </div>
+                                    </div>
+                                        
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                        <label>Image
+                                            <span class="text-input"><input name="n_image" type="file"  accept="image/*" value="" placeholder="Enter Image" style="width: 100%;" required></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>Certificate
+                                            <span class="text-input"><input name="n_certificate" type="file"  accept="image/*" value="" placeholder="Enter Certificate" required style="width: 100%;"></span>
+                                        </label>
+                                    </div>
+
+                                    </div>
+                                    
+                                    <div class="row">
+                                         <div class="col-md-12">
+                                       <label>Experience
+                                        <span class="text-input"><textarea name="n_experience" rows="5" cols="40" placeholder="Enter Experience" required></textarea></span>
+                                    </label>
+                                    </div>
+                                    </div>
+                                        
+                                    <div class="row">
+                                        
+                                        <div class="col-md-6">
+                                        <label>Password
+                                            <span class="text-input"><input name="n_password" type="password" id="myInput" value="" placeholder="Enter Password" required></span>
+                                        </label>
+                                    </div>
+
+                                        <div class="col-md-6">
+                                        <label>Fees
+                                            <span class="text-input"><input name="n_fees" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);" pattern="[0-9]{6}" title="Ex.100000" value="" placeholder="Enter Fees" required></span>
+                                        </label>
+                                    </div>                                        
+                                        
+                                   </div> 
+                                    <div class="card-footer text-start">
+                                    <input  type="checkbox" id="customCheckc1" onclick="myFunction()" />
+                                    Show Password
+                                    </div>
+
+                                     {% endif %}
+
+
+                                    <div class="col-lg-12">
+                                                
+                                    <div class="card-footer text-end">
+                                        <input type="submit" name="submit" value="Sign Up " class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-round  ttm-btn-style-fill ttm-btn-bgcolor-skincolor mb-5" />
+                                    </div>
+                                    </div>
+                                    
+                                
+                                </form>
+
+                                 {% if msg != "" %}
+                                  <div class="alert alert-danger col-md-6">
+                                  <strong>Sorry!</strong> {{msg}}
+                                  </div>
+                                  {% endif %}
+                                  {% if request.GET.verify == 'number'   %}
+                                  <h6>You have alreday Account..? <a href="nutritionapp/nlogin" class="text-theme-color">Sign In</a> | <a href="unforgotpassword"  class="text-theme-color">Forgot Password.?</a>
+                                    </h6>
+                                   {% elif  request.GET.verify == 'otp' %}
+                                    <h6>You have alreday Account..? <a href="nutritionapp/nlogin" class="text-theme-color">Sign In</a> | <a href="nresendotp" class="text-theme-color">Resend</a> | <a href="unforgotpassword"  class="text-theme-color">Forgot Password.?</a>
+                                    </h6>
+                                   {% endif %}
+            
+                            </div>
+                        </div>
+                        </div>
+                        
+                </div>
+            </div>
+            
+</section>
+
+
+<!--site-main end-->
+
+    </div>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+
+<script>
+                const params = new URLSearchParams(window.location.search);
+                if (params.get("alert") === "1") {
+                    alert("Password Sent In Your SMS");
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            </script>
+
+    <footer class="footer widget-footer ttm-bgcolor-black clearfix">
+      {% include 'ufooter.html' %}
+    </footer>
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+</div>
+
+  {% include 'uscript.html' %}
+
+
+</body>
+</html>

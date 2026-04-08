@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  {% load static %}
+  {% include 'uhead.html' %}
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="masthead" class="header ttm-header-style-stackcenter">
+            
+  {% include 'uheader.html' %}
+        </header>
+
+                {% if Request.path == '/' %}
+                {% include 'uslider.html' %}
+            {% else %}
+                {% include 'ubanner.html' %}
+            {% endif %}
+       
+
+
+    <div class="site-main">
+<!--site-main start-->
+      
+         <!--contact-form-section-->
+<section class="ttm-row contact-top-section ttm-bgcolor-grey clearfix ">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-8">
+                <div class="pt-50">
+                    <h3 class="font-23">Who Do you want to communicate with</h3>
+                    <p>For more information here we provide separate department contact person details, please contact them.</p>
+                    <div class="row mt-15">
+                        <div class="col-md-6">
+                            <h4 class="ttm-textcolor-skincolor">Career Inquiries</h4>
+                            <h5 class="font-18">Alex Hardy</h5>
+                            <p>Ph: (+01) 123 456 7899<br>Email: info@example.com</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="ttm-textcolor-skincolor">Marketing Department</h4>
+                            <h5 class="font-18">John Martin</h5>
+                            <p>Ph: (+01) 123 456 7899<br>Email: info@example.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row  spacing-12 box-shadow1 ttm-bgcolor-white mb-25">
+                        <div class="col-md-12"></div>
+                        <h4>My Profile</h4>
+                        
+                        <form id="ttm-contactform" class="ttm-contactform wrap-form clearfix" method="POST" enctype="multipart/form-data" >
+                            {% csrf_token %}
+                                <div class="row">
+                                <div class="col-md-5"></div>
+                                <div class="col-md-3">
+                                    <div class="featured-icon-box without-icon ttm-bgcolor-skincolor spacing-11" style="border-radius: 50px; height: 230px; width: 230px;">
+                                        
+                                                <img src="/media/{{u_data.0.u_image}}"  accept="image/*" alt="" style="width: 225px;
+                                                    height: 220px;
+                                                    border-radius: 21%;
+                                                    border: 1px solid;
+                                                    margin: -25px -28px;">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"> <div class="col-md-12">&nbsp;</div></div>
+                            <!-- <div class="row">
+                                
+                                <div class="col-lg-12">
+                                    <img src="/media/{{u_data.0.u_image}}" alt="" style="width: 150px;
+                                        height: 150px;
+                                        border-radius: 10%;
+                                        border: 1px solid;"><br><br>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                         <div class="col-md-6">
+                                    <label>Name
+                                        <span class="text-input"><input name="u_name" type="text" pattern="[A-Za-z\s]+" title="Please Enter Valid Name."  value="{{u_data.0.u_name}}" placeholder="Name" required></span>
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Contact Number
+                                        <span class="text-input"><input name="u_contact" type="text"  value="{{u_data.0.u_contact}}" placeholder="Enter Contact Number" readonly required></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                 <div class="col-md-6">
+                                    <label>Address
+                                    <span class="text-input"><textarea name="u_address"  placeholder="Enter Address" required>{{u_data.0.u_address}}</textarea></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label>Gender
+                                        <span class="text-input">
+                                            <select id="gender" name="u_gender" >
+                                                {% if u_data.0.u_gender == 'Male' %}
+
+                                                <option value="Female">Female</option> 
+                                                <option value="Male" selected>Male</option>
+
+                                                {% else%}
+                                                
+                                                <option value="Female" selected>Female</option> 
+                                                <option value="Male">Male</option>
+                                            
+                                                {% endif %}
+                                            </select>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                 <div class="col-md-6">
+                                    <label>Image
+                                        <span class="text-input"><input type="hidden"  value="{{u_data.0.u_image}}" name="old_image" id="" placeholder="" required>
+                                        <input type="file" name="u_image"  value="" placeholder="Enter Image" accept="image/*" style="width: 100%;" required/></span>
+                                    </label>
+                                </div>
+                            
+                                <div class="col-md-6">
+                                    <label>Date Of Birth
+                                        <span class="text-input"><input name="u_dob" type="date" value="{{u_data.0.u_dob|date:'Y-m-d'}}" placeholder="Enter Date Of Birth" required></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                                        
+                                        <div class="col-md-6">
+                                        <label>Blood Group
+                                            <span class="text-input">
+                                                <select id="" name="u_bloodgroup">
+                                                    {% for udata in u_data %}
+                                                    {% if u_data.0.u_bloodgroup == 'A+' %}    
+                                                <option value="A+" selected>A+</option>
+                                                <option value="A-">A-</option>
+                                                <option value="B+">B+</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="AB-">AB-</option>
+                                                <option value="O-">O-</option>
+                                                <option value="O+">O+</option>
+
+                                                {% elif u_data.0.u_bloodgroup == 'A-' %}    
+                                                <option value="A+" >A+</option>
+                                                <option value="A-" selected>A-</option>
+                                                <option value="B+">B+</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="AB-">AB-</option>
+                                                <option value="O-">O-</option>
+                                                <option value="O+">O+</option>
+                                                
+                                                {% elif u_data.0.u_bloodgroup == 'B+' %}    
+                                                <option value="A+" >A+</option>
+                                                <option value="A-" >A-</option>
+                                                <option value="B+" selected>B+</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="AB-">AB-</option>
+                                                <option value="O-">O-</option>
+                                                <option value="O+">O+</option>
+
+                                               {% elif u_data.0.u_bloodgroup == 'B-' %}    
+                                                <option value="A+" >A+</option>
+                                                <option value="A-">A-</option>
+                                                <option value="B+">B+</option>
+                                                <option value="B-" selected>B-</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="AB-">AB-</option>
+                                                <option value="O-">O-</option>
+                                                <option value="O+">O+</option>
+                                                
+                                                {% elif u_data.0.u_bloodgroup == 'AB+' %}    
+                                                <option value="A+" >A+</option>
+                                                <option value="A-" >A-</option>
+                                                <option value="B+">B+</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB+" selected>AB+</option>
+                                                <option value="AB-">AB-</option>
+                                                <option value="O-">O-</option>
+                                                <option value="O+">O+</option>
+                                                
+                                                {% elif u_data.0.u_bloodgroup == 'AB-' %}    
+                                                <option value="A+" >A+</option>
+                                                <option value="A-" >A-</option>
+                                                <option value="B+">B+</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="AB-" selected>AB-</option>
+                                                <option value="O-">O-</option>
+                                                <option value="O+">O+</option>
+                                                
+                                                {% elif u_data.0.u_bloodgroup == 'O-' %}    
+                                                <option value="A+" >A+</option>
+                                                <option value="A-" >A-</option>
+                                                <option value="B+">B+</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="AB-">AB-</option>
+                                                <option value="O-" selected>O-</option>
+                                                <option value="O+">O+</option>
+
+                                                {% else %}
+
+                                                <option value="A+">A+</option>
+                                                <option value="A-">A-</option>
+                                                <option value="B+">B+</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="AB-">AB-</option>
+                                                <option value="O-">O-</option>
+                                                <option value="O+" selected>O+</option>
+
+                                                {% endif %}
+                                            {% endfor %}
+                                                
+                                                
+                                                </select>
+                                            </span>
+                                        </label>
+                                    </div>
+                                 
+                                
+                                                            
+                            <div class="col-md-6">
+                                    <label>Password
+                                        <span class="text-input"><input name="u_password" type="text" value="{{u_data.0.u_password}}" placeholder="Enter Password" id="" required></span>
+                                    </label>
+                            </div>
+                            </div>
+                            <div class="card-footer text-end">
+                                <input name="submit" type="submit" id="submit" class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-round  ttm-btn-style-fill ttm-btn-bgcolor-skincolor mb-5" value="Change">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>            
+</section>
+        <!--contact-form-section end-->
+      
+                  
+<!--site-main end-->
+
+
+
+
+
+
+
+<!--site-main end-->
+
+    </div>
+
+
+    <footer class="footer widget-footer ttm-bgcolor-black clearfix">
+      {% include 'ufooter.html' %}
+    </footer>
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+</div>
+
+  {% include 'uscript.html' %}
+
+
+</body>
+</html>

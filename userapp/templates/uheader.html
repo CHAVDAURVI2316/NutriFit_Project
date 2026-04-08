@@ -1,0 +1,172 @@
+{% load static %}
+
+<!-- ttm-topbar-wrapper -->
+<div class="ttm-topbar-wrapper ttm-bgcolor-black ttm-textcolor-white clearfix">
+<div class="container">
+<div class="ttm-topbar-content">
+<ul class="list-inline top-contact  topbar-left text-left">
+    <li><i class="fa fa-map-marker"> </i>Sector-7, Gandhinagar - 382 007</li> 
+    <li> <i class="fa fa-clock-o"></i> Mon-Sat: 9 AM to 6 PM</li>
+</ul>
+<div class="topbar-right text-right">
+    <ul class="list-inline top-contact">
+        <li><i class="fa fa-envelope-o"></i><a href="mailto:ccca_bca@yahoo.com">ccca_bca@yahoo.com</a></li>
+    </ul>
+    <div class="ttm-social-links-wrapper list-inline">
+        <ul class="social-icons list-inline">
+            <li><a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li><a href="https://x.com" target="_blank"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li><a href="https://flickr.com" target="_blank"><i class="fa fa-flickr"></i></a>
+            </li>
+            <li><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a>
+            </li>
+        </ul>
+    </div>
+    
+</div>
+
+</div>
+</div>
+</div><!-- ttm-topbar-wrapper end -->
+<!-- ttm-header-wrap -->
+<div class="ttm-header-wrap">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+    <div class="widget-left clearfix">
+        <div class="info-widget">
+            <div class="info-widget-content"><p>24/7 Emergency Care</p><h2>(+91) 70464 05775</h2> </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-6">
+    <!-- site-branding -->
+    <div class="site-branding">
+        <a class="home-link" href="/" title="Nutrifit" rel="home">
+            <img id="logo-img" class="img-center" src="{% static 'images/nlogo.png' %}" alt="logo-img" style="max-height: 100px; width: 200;">
+        </a>
+    </div><!-- site-branding end -->
+</div>
+<div class="col-lg-3">
+    <div class="widget-right clearfix">
+        <div class="info-widget">
+             {% if request.session.uid == None %}
+            <div class="info-widget-content"><p>Request an</p><a href="ulogin"> <h2>Get Appointment</h2></a> </div>
+            {% else %}
+             <div class="info-widget-content"><p>Request an</p><a href="uourteam"> <h2>Get Appointment</h2></a> </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+    <!-- ttm-stickable-header-w -->
+    <div id="ttm-stickable-header-w" class="ttm-stickable-header-w ttm-bgcolor-white clearfix">
+        <div id="site-header-menu" class="site-header-menu">
+            <div class="site-header-menu-inner ttm-stickable-header">
+                <div class="container">
+    <!--site-navigation -->
+    <div id="site-navigation" class="site-navigation">
+    <div class="ttm-menu-toggle">
+    <input type="checkbox" id="menu-toggle-form">
+    <label for="menu-toggle-form" class="ttm-menu-toggle-block">
+        <span class="toggle-block toggle-blocks-1"></span>
+        <span class="toggle-block toggle-blocks-2"></span>
+        <span class="toggle-block toggle-blocks-3"></span>
+    </label>
+    </div>
+
+    {% if request.session.uid == None %}
+    <nav id="menu" class="menu">
+    <ul class="dropdown">
+        <li class="active"><a href="/">Home</a>
+        </li>
+        <li>
+            <a href="uourteam">Nutritionist</a>
+            
+        </li>
+
+        <li><a href="#">Sign Up</a>
+            <ul>
+                <li><a href="usignup?verify=number">User</a></li>
+                <li><a href="unsignup?verify=number">Nutritionist</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Sign In</a>
+            <ul>
+                <li><a href="ulogin">User</a></li>
+                <li><a href="nutritionapp/nlogin" target="_blank">Nutritionist</a></li>
+            </ul>
+        </li>
+         <li>
+            <a href="aboutus">About Us</a>
+        </li>
+        <li>
+            <a href="contactus">Contact Us</a>
+            
+        </li>
+            
+    </ul>
+    
+</nav>
+
+{% else %}
+
+    <nav id="menu" class="menu">
+    <ul class="dropdown">
+        <li class="active"><a href="/">Home</a>
+        </li>
+        <li><a href="uprofile">Profile</a>
+            
+        </li>
+         <li>
+            <a href="uourteam">Nutritionist</a>
+            
+        </li>
+          <li>
+            <a href="umyappointment">My Appointment</a>
+            
+        </li>
+         <li>
+            <a href="umypayment">Payment</a>
+            
+        </li>
+         <li>
+            <a href="aboutus">About Us</a>
+        </li>
+        <li>
+            <a href="contactus">Contact Us</a>
+            
+        </li>
+
+        <li>
+            <a href="logout">Logout</a>
+            
+        </li>
+            
+    </ul>
+    
+</nav>
+
+{% endif %}
+
+
+</div><!-- site-navigation end-->
+</div>
+</div>
+</div>
+    </div>
+</div><!-- ttm-stickable-header-w end-->
+</div>
+</div>
+</div><!--ttm-header-wrap end -->
+
+<style>
+    .prt_floting_customsett
+    {
+        display: none !important;
+    }
+</style>

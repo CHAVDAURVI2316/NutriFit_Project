@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  {% load static %}
+  {% include 'uhead.html' %}
+   <style>
+    .green{
+      background-color: #9dca00; 
+      color: white; 
+      padding: 2px 5px; 
+      border-radius: 5px;
+    }
+    .red{
+      background-color: #ff054f; 
+      color: white; 
+      padding: 2px 5px; 
+      border-radius: 5px;
+    }
+    .yellow{
+      background-color: #ffc107; 
+      color: white; 
+      padding: 2px 5px; 
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="masthead" class="header ttm-header-style-stackcenter">
+            
+  {% include 'uheader.html' %}
+        </header>
+
+                {% if Request.path == '/' %}
+                {% include 'uslider.html' %}
+            {% else %}
+                {% include 'ubanner.html' %}
+            {% endif %}
+       
+
+    <!--site-main start-->
+    <div class="site-main">
+
+         <!-- cart-section -->
+        <section class="ttm-row cart-section break-991-colum clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- ttm-cart-form -->
+                        <form class="ttm-cart-form" action="#" method="post" enctype="multipart/form-data">
+                            <table class="shop_table shop_table_responsive" style="width: fit-content;" >
+                                <thead>
+                                    <tr>
+                                        <th class="product-remove">Action</th>
+                                        
+                                        <th class="product-thumbnail">No.</th>
+                                        <th class="product-thumbnail">Nutritionist</th>
+                                        <th class="product-price">Type</th>
+                                        <th class="product-quantity">Amount</th>
+                                        <th class="product-subtotal" >Status</th>
+                                        <th class="product-subtotal" style="width:10%;">Date</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                {% for pdata in p_data %} 
+                                        <td class="product-remove">
+                                            {% if pdata.p_type == 'Consult' and pdata.p_status == 'Failed' %}
+                                            <a href="upayment?p_payment_id={{pdata.p_payment_id}}" class="cancel" style="color: #9dca00;" title="Make Payment"><i class="fa fa-edit"></i></a>
+                                            {% else %}
+                                           <b> -</b>
+                                         {% endif %}
+                                        
+                                        </td>
+                                        <td class="product-thumbnail">
+                                            {{forloop.counter}} 
+
+                                        </td>
+                                        <td class="product-name" data-title="Product">
+                                          {{pdata.n_name}} <br>
+                                          <span class="green">{{pdata.n_contact}} </span>
+                                        </td>
+                                        <td class="product-quantity" data-title="Quantity">
+                                         {{pdata.p_type}} 
+                                        </td>
+                                        
+                                        <td class="product-subtotal" data-title="Total">
+                                           ₹&nbsp;{{pdata.p_amount}}
+                                        </td>
+                                        <td class="product-quantity" data-title="Quantity">
+                                          <span class="{% if pdata.p_status == 'Success' %}green {% else %}red{% endif %}">{{pdata.p_status}}</span>
+                                         
+                                        </td>
+                                        <td class="product-subtotal" data-title="Total">
+                                           {{pdata.p_cdate|date:'Y-m-d'}}
+                                        </td>
+                                    </tr>
+                                  
+                        {% endfor %}
+                                </tbody>
+                            </table>
+                        </form><!-- ttm-cart-form end -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- cart-section end-->
+
+       
+
+        
+
+
+
+
+
+<!--site-main end-->
+
+    </div>
+
+
+    <footer class="footer widget-footer ttm-bgcolor-black clearfix">
+      {% include 'ufooter.html' %}
+    </footer>
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+</div>
+
+  {% include 'uscript.html' %}
+
+
+</body>
+</html>

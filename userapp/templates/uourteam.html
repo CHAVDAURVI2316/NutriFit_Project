@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  {% load static %}
+  {% include 'uhead.html' %}
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="masthead" class="header ttm-header-style-stackcenter">
+            
+  {% include 'uheader.html' %}
+        </header>
+
+                {% if Request.path == '/' %}
+                {% include 'uslider.html' %}
+            {% else %}
+                {% include 'ubanner.html' %}
+            {% endif %}
+       
+
+
+    
+<!--site-main start-->
+<div class="site-main">
+
+        <!--team-style2-section-->
+        <section class="ttm-row team-style2-section clearfix">
+            <div class="container">
+                <div class="row"><!-- row --> 
+                    {% for ndata in n_data %}
+                    <div class="col-md-8 col-lg-4">
+                        <!-- featured-imagebox -->
+                          
+                        <div class="featured-imagebox featured-imagebox-team ttm-team-box-view-overlay-style2 mb-30" style="border: 2px solid; border-radius: 10%;">
+                           
+                            <div class="ttm-box-view-overlay ttm-team-style2-box-view-overlay">
+                                <div class="featured-thumbnail"><!-- team-member-image -->
+                                   
+                                    <img class="img-fluid" src="/media/{{ndata.n_image}}" alt="" style="width: 400px; height: 300px;">
+                                    <div class="ttm-social-links-wrapper">
+                                        <ul class="social-icons list-inline"><!-- team-member-social-links -->
+                                            <li class="social-facebook"><a target="" href="uteamdetails?nid={{ndata.n_id}}" style="width: 100%;">Book Appointment</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="featured-content featured-content-team">
+                                <div class="featured-title"><!-- team-member-name -->
+                                    <h5><a href="uteamdetails?nid={{ndata.n_id}}">{{ndata.n_name}}</a></h5>
+                                </div>
+                                <div class="ttm-team-position ttm-textcolor-white">{{ndata.s_name}}</div><!-- team-member-position -->
+                            </div>  
+                        </div><!-- featured-imagebox END-->
+                     
+                    </div>
+                     {% endfor %}
+                </div><!-- row end -->
+            </div>
+        </section>
+        <!--team-style2-section end-->
+
+
+    </div><!--site-main end-->
+
+
+
+
+<!--site-main end-->
+
+    
+    
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+    <footer class="footer widget-footer ttm-bgcolor-black clearfix">
+      {% include 'ufooter.html' %}
+    </footer>
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+</div>
+
+  {% include 'uscript.html' %}
+
+
+</body>
+</html>

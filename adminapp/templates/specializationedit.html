@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+ {% load static %}
+  
+<head>
+    {% include 'head.html' %}
+  </head>
+  
+  <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+
+
+
+ <!--  start -->
+<nav class="pc-sidebar">
+
+    {% include 'leftbar.html' %}
+</nav>
+<!-- [ Sidebar Menu ] end -->
+ <!-- [ Header Topbar ] start -->
+<header class="pc-header">
+ 
+    {% include 'header.html' %}
+</header>
+<!-- [ Header ] end -->
+
+
+
+    <!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header" style="margin-top: -28px;">
+  <div class="page-block">
+    <div class="row align-items-center">
+      <div class="col-md-12">
+        <div class="page-header-title">
+          <h5 class="mb-0">Manage Specialization</h5>
+        </div>
+      </div>
+      <div class="col-md-12">
+         <ul class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="/adminapp/">Dashboard</a></li>
+          <li class="breadcrumb-item" aria-current="page">Edit Specialization </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+        </div>
+<!-- [ breadcrumb ] end -->
+
+<!-- start -->
+      
+
+
+ <div class="row">
+          <!-- [ form-element ] start -->
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>Edit Specialization</h5>
+              </div>
+              <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                   {% csrf_token %}
+                  <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" name="s_name" value="{{sp_data.0.s_name}}" class="form-control" placeholder="Enter name" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Image</label><br><br>
+                  
+                    <input type="hidden"  value="{{sp_data.0.s_image}}" name="old_image" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+                
+                    <img src="/media/{{sp_data.0.s_image}}" alt="" height="80px" width="80px"><br><br>
+                    <input type="file" name="s_image" class="form-control" placeholder="Enter Image" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Status</label>
+                     <select class="form-control" name="s_status">
+                            {% if sp_data.0.s_status == 'Active' %}
+                            <option value="Active" selected>Active</option>
+                            <option value="Deactive">Deactive</option>
+                            {% else %}
+                            <option value="Active">Active</option>
+                            <option value="Deactive" selected>Deactive</option>
+                            {% endif %}
+                        </select>
+                     </div>
+                <div class="card-footer text-end">
+                <button type="submit" name="submit" class="btn btn-primary">Update</button>
+                </div>
+                </form>
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+       
+
+          
+
+
+
+<!-- end -->
+      </div>
+</div>
+    <!-- [ Main Content ] end -->
+<footer class="pc-footer">
+        
+    {% include 'footer.html' %}
+
+</footer>
+
+
+   {% include 'script.html' %}
+
+  </body>
+ 
+ 
+  </html>
