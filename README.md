@@ -59,7 +59,7 @@ NutriFit/
 ## 💻 Installation & Setup
 
 1. Clone the repository:
-git clone https://github.com/YOUR-USERNAME/NutriFit.git
+git clone https://github.com/CHAVDAURVI2316/NutriFit.git
 
 2. Navigate to project folder:
 cd NutriFit
